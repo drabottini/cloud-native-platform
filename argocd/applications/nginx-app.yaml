@@ -9,7 +9,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@github.com:drabottini/cloud-native-platform.git
+    repoURL: https://github.com/drabottini/cloud-native-platform.git
     targetRevision: HEAD
     path: kubernetes/apps/nginx
 
