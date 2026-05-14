@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/drabottini/cloud-native-platform.git
     targetRevision: HEAD
-    path: kubernetes/apps/nginx
+    path: kubernetes/overlays/dev/nginx
 
   destination:
     server: https://kubernetes.default.svc

@@ -1,0 +1,7 @@
+resources:
+  - ../../../base/nginx
+
+namePrefix: dev-
+
+commonLabels:
+  environment: dev
