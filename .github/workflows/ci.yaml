@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  validate-kubernetes:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Setup kustomize
+        uses: imranismail/setup-kustomize@v2
+
+      - name: Validate dev overlay
+        run: |
+          kustomize build kubernetes/overlays/dev/nginx > /tmp/rendered.yaml
+
+      - name: Kubernetes dry-run validation
+        run: |
+          kubectl apply \
+            --dry-run=client \
+            -f /tmp/rendered.yaml
